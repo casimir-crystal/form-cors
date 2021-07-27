@@ -2,7 +2,7 @@
 
 form-cors is a node.js package designed to protect cross domain attacks form HTTP form request, since form request doesn't make JavaScript same origin policy works. You can see [here](https://stackoverflow.com/questions/11423682/cross-domain-form-posting) for more information. 
 
-This package is a [Nest.js](https://docs.nestjs.com/) middleware(may also works with Express), but it's simple since it just blocks any request with `req.header('content-type') === 'application/x-www-form-urlencoded'`. This maybe aggressive, but you can use configuration like a whitelist though.
+This package is a [Nest.js](https://docs.nestjs.com/) middleware(may also works with Express), but it's simple since it just blocks any request with `req.header('content-type') === 'application/x-www-form-urlencoded'`. This maybe aggressive, but you can use configuration like a `allowList` though.
 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -43,14 +43,14 @@ bootstrap();
 
 ## Configuration Options
 
-* `whitelist`: Array of domains that can be excluded from the protection, example: `['https://my.domain.com']`
+* `allowList`: Array of domains that can be excluded from the protection, example: `['https://my.domain.com']`
 * `exception`: An Exception will be thrown if a client sends a form post. Usually you should set a Nestjs Exception like `new NotAcceptableException()` from `@nestjs/common`.
 
 with configuration, here's a simple snippet:
 
 ```javascript
 app.use(formCors({
-  whitelist: ['https://my.domain.com'],
+  allowList: ['https://my.domain.com'],
   exception: new NotAcceptableException('This request is not allowed.'),
 }));
 ```
