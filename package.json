@@ -1,0 +1,14 @@
+{
+  "name": "form-cors",
+  "version": "1.0.0",
+  "description": "Nest.js middleware for form requests CORS protection",
+  "license": "MIT",
+  "keywords": [
+    "cors",
+    "nestjs",
+    "middleware"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {},
+  "author": "Casimir Crystal <casimir.crystal.blue@outlook.com> (https://github.com/casimir-crystal/)"
+}
